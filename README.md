@@ -13,12 +13,16 @@
 
 ---
 
-```cmd
+
 :: 1. Установка публичного KMS-ключа (для Windows 10/11 Pro)
+```cmd
 slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
-
+```
 :: 2. Подключение к серверу лицензирования
+```cmd
 slmgr /skms kms.digiboy.ir
-
+```
+```cmd
 :: 3. Запуск процесса активации в системе
 slmgr /ato
+```
