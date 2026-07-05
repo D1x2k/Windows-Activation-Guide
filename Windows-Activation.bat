@@ -34,15 +34,13 @@ echo.
 
 cscript //nologo %systemroot%\system32\slmgr.vbs /xpr
 
-echo.
-echo ┌──────────────────────────────────────────────────────────┐
-echo │  Нажмите любую клавишу, чтобы закрыть окно.              │
-echo └──────────────────────────────────────────────────────────┘
+echo Нажмите любую клавишу...
 pause >nul
 
-echo Set fso = CreateObject("Scripting.FileSystemObject") > "%temp%\del.vbs"
-echo fso.DeleteFile "%~f0" >> "%temp%\del.vbs"
-echo WScript.Quit >> "%temp%\del.vbs"
+set "vbs=%temp%\del.vbs"
+> "%vbs%" echo Set fso = CreateObject("Scripting.FileSystemObject")
+>> "%vbs%" echo fso.DeleteFile WScript.Arguments(0)
+>> "%vbs%" echo WScript.Quit
 
-wscript //nologo "%temp%\del.vbs"
+start "" wscript //nologo "%vbs%" "%~f0"
 exit
