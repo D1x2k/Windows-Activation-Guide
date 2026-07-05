@@ -8,7 +8,7 @@
 ```cmd
 powershell "iwr 'https://raw.githubusercontent.com/D1x2k/Windows-Activation-Guide/main/Windows-Activation.bat' -OutF $env:TEMP\1.bat; start $env:TEMP\1.bat -v runas"
 ```
-Преимущество скрипта:
+⚡ **Преимущество скрипта:**
 
 - 📥 Скачает последнюю версию с GitHub;
 - 🚀 Запустит её с правами администратора;
