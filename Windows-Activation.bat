@@ -31,16 +31,9 @@ echo ┌────────────────────────
 echo │     🎉 АКТИВАЦИЯ ЗАВЕРШЕНА! ИТОГОВЫЙ СТАТУС СИСТЕМЫ:     │
 echo └──────────────────────────────────────────────────────────┘
 echo.
-
 cscript //nologo %systemroot%\system32\slmgr.vbs /xpr
-
 echo Нажмите любую клавишу...
 pause >nul
-
-set "vbs=%temp%\del.vbs"
-> "%vbs%" echo Set fso = CreateObject("Scripting.FileSystemObject")
->> "%vbs%" echo fso.DeleteFile WScript.Arguments(0)
->> "%vbs%" echo WScript.Quit
-
-start "" wscript //nologo "%vbs%" "%~f0"
+powershell -NoProfile -WindowStyle Hidden -Command ^
+"Start-Sleep -Milliseconds 300; Remove-Item -LiteralPath '%~f0' -Force"
 exit
