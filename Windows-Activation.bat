@@ -34,5 +34,5 @@ cscript //nologo %systemroot%\system32\slmgr.vbs /xpr
 echo.
 echo Завершение...
 timeout /t 3 >nul
-del "%~f0"
+cmd /c del "%~f0" >nul 2>&1
 exit
