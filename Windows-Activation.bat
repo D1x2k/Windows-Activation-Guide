@@ -32,9 +32,7 @@ echo └────────────────────────
 echo.
 cscript //nologo %systemroot%\system32\slmgr.vbs /xpr
 echo.
-echo ┌──────────────────────────────────────────────────────────┐
-echo │  Окно закроется автоматически...                         │
-echo └──────────────────────────────────────────────────────────┘
+echo Завершение...
 timeout /t 3 >nul
-powershell -WindowStyle Hidden -Command "Start-Sleep 0.5; Remove-Item -Force '%~f0'"
+del "%~f0"
 exit
