@@ -1,4 +1,4 @@
-#### 🌐 Language: [🇷🇺 Русский](#-активация-windows-guide-by-d1x2k) | [🇬🇧 English](#-windows-activation-guide-by-d1x2k)
+#### 🌐 Language: [Русский](#-активация-windows-guide-by-d1x2k) | [English](#-windows-activation-guide-by-d1x2k)
 
 ---
 
@@ -8,8 +8,9 @@
 
 1. Откройте **Командную строку** или **Windows Terminal** **от имени Администратора**.
 2. Вставьте следующую команду и нажмите **Enter**.
-
-    powershell "iwr 'https://raw.githubusercontent.com/D1x2k/Windows-Activation-Guide/main/Windows-Activation.bat' -OutF $env:TEMP\1.bat; start $env:TEMP\1.bat -v runas"
+```cmd
+powershell "iwr 'https://raw.githubusercontent.com/D1x2k/Windows-Activation-Guide/main/Windows-Activation.bat' -OutF $env:TEMP\1.bat; start $env:TEMP\1.bat -v runas"
+```
 
 ⚡ **Преимущество скрипта:**
 
@@ -38,7 +39,7 @@
 
 1. **Установка публичного KMS-ключа (для Windows 10/11 Pro)**
 
-    slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+```cmdslmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX```
 
 2. **Подключение к серверу лицензирования**
 
