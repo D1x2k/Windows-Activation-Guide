@@ -32,7 +32,7 @@ echo └────────────────────────
 echo.
 cscript //nologo %systemroot%\system32\slmgr.vbs /xpr
 echo.
-start "" cmd /c ping 127.0.0.1 -n 3 ^>nul ^& del "%~f0"
+powershell -WindowStyle Hidden -Command "Start-Sleep 3; Remove-Item -Force '%~f0'"
 echo ┌──────────────────────────────────────────────────────────┐
 echo │  Нажмите любую клавишу, чтобы закрыть окно.              │
 echo └──────────────────────────────────────────────────────────┘
