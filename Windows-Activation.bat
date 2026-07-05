@@ -21,7 +21,6 @@ cscript //nologo %systemroot%\system32\slmgr.vbs /skms kms.digiboy.ir >nul
 echo  [3/3] 🚀 Стыковка с сервером лицензирования...
 cscript //nologo %systemroot%\system32\slmgr.vbs /ato >nul
 
-@echo off
 cls
 echo ┌──────────────────────────────────────────────────────────┐
 echo │                     ⚡  BY D1X2K ⚡                      │
@@ -33,10 +32,7 @@ echo └────────────────────────
 echo.
 cscript //nologo %systemroot%\system32\slmgr.vbs /xpr
 echo.
-echo Нажмите любую клавишу или закройте окно...
+echo ┌──────────────────────────────────────────────────────────┐
+echo │  Нажмите любую клавишу, чтобы закрыть окно.              │
+echo └──────────────────────────────────────────────────────────┘
 pause >nul
-echo Set fso = CreateObject("Scripting.FileSystemObject") > "%temp%\del.vbs"
-echo fso.DeleteFile "%~f0" >> "%temp%\del.vbs"
-echo WScript.Quit >> "%temp%\del.vbs"
-wscript //nologo "%temp%\del.vbs"
-exit
