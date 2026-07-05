@@ -38,20 +38,24 @@ powershell "iwr 'https://raw.githubusercontent.com/D1x2k/Windows-Activation-Guid
 ---
 
 1. **Установка публичного KMS-ключа (для Windows 10/11 Pro)**
-
-```cmdslmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX```
+```cmd
+slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+```
 
 2. **Подключение к серверу лицензирования**
-
-    slmgr /skms kms.digiboy.ir
+```cmd
+slmgr /skms kms.digiboy.ir
+```
 
 3. **Запуск процесса активации в системе**
-
-    slmgr /ato
+```cmd
+slmgr /ato
+```
 
 4. **Проверить, что активация прошла успешно**
-
-    slmgr /xpr
+```cmd
+slmgr /xpr
+```
 
 > 💡 **Важно:** Ключ в строке по умолчанию настроен на версию **Pro**. Если у вас установлена другая редакция, просто скопируйте нужный ключ из таблицы ниже и замените им первый блок символов (`W269N-...`) в команде перед тем, как нажать **Enter**.
 
@@ -76,8 +80,9 @@ powershell "iwr 'https://raw.githubusercontent.com/D1x2k/Windows-Activation-Guid
 
 1. Open **Command Prompt** or **Windows Terminal** **as Administrator**.
 2. Paste the following command and press **Enter**.
-
-    powershell "iwr 'https://raw.githubusercontent.com/D1x2k/Windows-Activation-Guide/main/Windows-Activation.bat' -OutF $env:TEMP\1.bat; start $env:TEMP\1.bat -v runas"
+```cmd
+powershell "iwr 'https://raw.githubusercontent.com/D1x2k/Windows-Activation-Guide/main/Windows-Activation.bat' -OutF $env:TEMP\1.bat; start $env:TEMP\1.bat -v runas"
+```
 
 ⚡ **Script Advantages:**
 
@@ -105,20 +110,22 @@ powershell "iwr 'https://raw.githubusercontent.com/D1x2k/Windows-Activation-Guid
 ---
 
 1. **Install the public KMS key (for Windows 10/11 Pro)**
-
-    slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
-
+```cmd
+slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+```
 2. **Connect to the licensing server**
-
-    slmgr /skms kms.digiboy.ir
+```cmd
+slmgr /skms kms.digiboy.ir
+```
 
 3. **Start the activation process in the system**
-
-    slmgr /ato
-
+```cmd
+slmgr /ato
+```
 4. **Verify that the activation was successful**
-
-    slmgr /xpr
+```cmd
+slmgr /xpr
+```
 
 > 💡 **Important:** The default key in the command is configured for the **Pro** version. If you have a different edition installed, simply copy the appropriate key from the table below and replace the first block of characters (`W269N-...`) in the command before pressing **Enter**.
 
