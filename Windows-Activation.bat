@@ -32,8 +32,13 @@ echo │     🎉 АКТИВАЦИЯ ЗАВЕРШЕНА! ИТОГОВЫЙ СТА
 echo └──────────────────────────────────────────────────────────┘
 echo.
 cscript //nologo %systemroot%\system32\slmgr.vbs /xpr
-echo Нажмите любую клавишу...
-pause >nul
+echo.
+echo Нажмите любую клавишу или закройте окно для выхода...
 powershell -NoProfile -WindowStyle Hidden -Command ^
-"Start-Sleep -Milliseconds 300; Remove-Item -LiteralPath '%~f0' -Force"
+"$proc = Get-Process -Id $PID -ErrorAction SilentlyContinue; ^
+Start-Process powershell -WindowStyle Hidden -ArgumentList '-NoProfile -Command ^
+Start-Sleep -Milliseconds 200; ^
+while (Get-Process -Id $PID -ErrorAction SilentlyContinue) { Start-Sleep -Milliseconds 1 }; ^
+Remove-Item -LiteralPath ''%~f0'' -Force'"
+pause >nul
 exit
