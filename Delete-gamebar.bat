@@ -31,14 +31,16 @@ echo   [ 1 ] - Удалить приложение Xbox Game Bar (полност
 echo   [ 2 ] - Исправить ошибку (отключить фоновые процессы)
 echo   [ 3 ] - Откатить исправление (включить обратно)
 echo   [ 4 ] - Проверить текущие настройки системы и реестра
-echo   [ 0 ] - Выход
+echo   [ 5 ] - Выйти и УДАЛИТЬ этот скрипт (Самоуничтожение)
+echo   [ 0 ] - Выход (Оставить скрипт)
 echo.
 
-:: Безопасный выбор через клавиатуру (1, 2, 3, 4 или 0)
-choice /C 12340 /N /M "Ваш выбор (1/2/3/4/0): "
+:: Безопасный выбор через клавиатуру (1, 2, 3, 4, 5 или 0)
+choice /C 123450 /N /M "Ваш выбор (1/2/3/4/5/0): "
 
 :: Обработка выбора (порядок errorlevel важен: от большего к меньшему)
-if errorlevel 5 goto exit
+if errorlevel 6 goto exit
+if errorlevel 5 goto selfdestruct
 if errorlevel 4 goto check
 if errorlevel 3 goto rollback
 if errorlevel 2 goto fix
@@ -53,7 +55,7 @@ echo.
 
 :: ФИКС ШРИФТА: Временно ставим кодировку 866 перед запуском PS
 chcp 866 >nul
-:: Удаляем сначала из образа Windows (чтобы не ставился новым юзерам), а потом добиваем у текущих
+:: Удаляем сначала из образа Windows, а потом добиваем у текущих
 powershell -NoProfile -Command "Get-AppxProvisionedPackage -Online | Where-Object {$_.DisplayName -like '*XboxGamingOverlay*'} | Remove-AppxProvisionedPackage -Online; Get-AppxPackage -AllUsers *Microsoft.XboxGamingOverlay* | Remove-AppxPackage -AllUsers" >nul 2>&1
 chcp 65001 >nul
 
@@ -166,6 +168,18 @@ echo   ==============================================================
 echo   Нажмите любую клавишу для возврата в меню...
 pause >nul
 goto menu
+
+:selfdestruct
+cls
+echo.
+echo   ==============================================================
+echo   [~] Запущено самоуничтожение...
+echo   Скрипт сделал свое дело и сейчас удалит себя с компьютера.
+echo   ==============================================================
+echo.
+:: Запускаем скрытый PowerShell, который подождет полсекунды и удалит этот .bat файл
+powershell -NoProfile -WindowStyle Hidden -Command "Start-Sleep -Milliseconds 500; Remove-Item -LiteralPath '%~f0' -Force"
+exit
 
 :exit
 exit
